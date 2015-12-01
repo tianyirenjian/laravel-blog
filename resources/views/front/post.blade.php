@@ -27,7 +27,7 @@
                         <div class="post-content">
                             @if(!$article->password || (\Session::get('passed_'.$article->id)))
                             {!! Markdown::convertToHtml($article->content) !!}
-                            <div style="margin-bottom: 10px;"></div>
+                            <div style="margin-bottom: 10px;padding-bottom: 15px;"></div>
                             <!-- UY BEGIN -->
                             <div id="uyan_frame"></div>
                             <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1679714"></script>
