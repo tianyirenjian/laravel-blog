@@ -21,7 +21,6 @@
                             <th>ID</th>
                             <th>标题</th>
                             <th>标签</th>
-                            <th>评论数量</th>
                             <th>添加时间</th>
                             <th>最后修改</th>
                             <th>操作</th>
@@ -37,7 +36,6 @@
                                 <span class="label label-default">{{ $tag->name }}</span>
                                 @endforeach
                             </td>
-                            <td>{{ $article->comments()->count() }}</td>
                             <td>{{ $article->created_at }}</td>
                             <td>{{ $article->updated_at }}</td>
                             <td>

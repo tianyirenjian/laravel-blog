@@ -16,11 +16,6 @@ class Article extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-
     //获取密码，如果密码不包含英文逗号，在首尾添加一个英文逗号
     public function getPasswordAttribute()
     {
