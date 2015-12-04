@@ -8,16 +8,19 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Tag;
+use App\Setting;
 
 class IndexController extends Controller
 {
     private $tags;
+    private $setting;
 
     public function __construct()
     {
         $this->tags=Tag::with(['articles'=>function($query){
             $query->select('id');
         }])->get();
+        $this->setting=Setting::first();
 
         /*$this->tags=Tag::select([
             'tags.*',
@@ -34,7 +37,8 @@ class IndexController extends Controller
         $articles=Article::with('tags')->latest()->paginate(5);
         return view('front.index',[
             'articles'=>$articles,
-            'tags'=>$this->tags
+            'tags'=>$this->tags,
+            'setting'=>$this->setting
         ]);
     }
 
@@ -47,7 +51,8 @@ class IndexController extends Controller
             if(\Request::method()=='GET'){
                 return view('front.post',[
                     'article'=>$article,
-                    'tags'=>$this->tags
+                    'tags'=>$this->tags,
+                    'setting'=>$this->setting
                 ]);
             }else{
                 //判断密码
@@ -85,9 +90,11 @@ class IndexController extends Controller
             abort(404);
         }else{
             $articles=$tag->articles()->latest()->paginate(5);
-            return view('front.index',[
+            return view('front.tag',[
+                'tag'=>$tag,
                 'articles'=>$articles,
-                'tags'=>$this->tags
+                'tags'=>$this->tags,
+                'setting'=>$this->setting
             ]);
         }
     }

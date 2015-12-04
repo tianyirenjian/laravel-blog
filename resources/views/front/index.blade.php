@@ -1,6 +1,8 @@
 @extends('front.template')
 @section('title')
-    <title>Goenitz</title>
+<title>{{ $setting->webname }}</title>
+<meta name="keywords" content="{{ $setting->keywords }}">
+<meta name="description" content="{{ $setting->description }}">
 @stop
 @section('content')
 <div class="container">
