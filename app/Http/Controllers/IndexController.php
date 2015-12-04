@@ -90,12 +90,23 @@ class IndexController extends Controller
             abort(404);
         }else{
             $articles=$tag->articles()->latest()->paginate(5);
-            return view('front.tag',[
+            return view('front.index',[
                 'tag'=>$tag,
                 'articles'=>$articles,
                 'tags'=>$this->tags,
                 'setting'=>$this->setting
             ]);
         }
+    }
+
+    public function search(){
+        $query=\Request::get('query');
+        $articles=Article::where('title','like','%'.$query.'%')->latest()->paginate(5);
+        return view('front.index',[
+            'query'=>$query,
+            'articles'=>$articles,
+            'tags'=>$this->tags,
+            'setting'=>$this->setting
+        ]);
     }
 }

@@ -12,9 +12,12 @@
 */
 
 Route::get('/', 'IndexController@index');
+Route::get('/home', 'IndexController@index');
+
 Route::get('/post/{name}','IndexController@show');
 Route::post('/post/{name}','IndexController@show');
 Route::get('/tag/{name}','IndexController@showTag');
+Route::get('/search','IndexController@search');
 
 Route::get('auth/login','Auth\AuthController@getLogin');
 Route::post('auth/login','Auth\AuthController@postLogin');

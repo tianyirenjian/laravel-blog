@@ -1,8 +1,14 @@
 @extends('front.template')
 @section('title')
+@if(isset($tag))
+<title>标签:{{ $tag->name }} - {{ $setting->webname }}</title>
+@elseif(isset($query))
+<title>搜索:{{ $query }} - {{ $setting->webname }}</title>
+@else
 <title>{{ $setting->webname }}</title>
 <meta name="keywords" content="{{ $setting->keywords }}">
 <meta name="description" content="{{ $setting->description }}">
+@endif
 @stop
 @section('content')
 <div class="container">
