@@ -29,6 +29,9 @@
 <footer>
     <p class="container">©2015 Powered by Goenitz.</p>
 </footer>
+<div class="progress xxs" id="topProgress">
+    <div class="progress-bar" style="width: 0%"></div>
+</div>
 <script src="{{ elixir('js/app.js') }}"></script>
 <script type="text/javascript">
 hljs.initHighlightingOnLoad();
