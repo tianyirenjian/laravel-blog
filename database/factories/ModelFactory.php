@@ -33,3 +33,10 @@ $factory->define(App\Setting::class,function(Faker\Generator $faker){
         'description'=>'Goenitz 个人空间'
     ];
 });
+
+$factory->define(App\Profile::class,function(Faker\Generator $faker){
+    return [
+        'avatar'=>'/images/673c0cd78d6356b5229f0ac0be69bc07.jpg',
+        'user_id'=>1
+    ];
+});

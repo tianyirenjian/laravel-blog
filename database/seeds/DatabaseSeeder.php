@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 
         factory('App\User')->create();
         factory('App\Setting')->create();
+        factory('App\Profile')->create();
 
         Model::reguard();
     }
