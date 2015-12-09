@@ -13,6 +13,8 @@
 
 另外博客实现了一个简单的文章加密功能，支持多个用逗号隔开的多个密码。
 
+评论我是用的多说的，请**务必**修改为你自己的。在`resources/views/front/post.blade.php`文件中可以找到。
+
 首页截图：
 
 ![首页截图](https://ooo.0o0.ooo/2015/12/09/5667f281a8c27.png)
@@ -41,6 +43,7 @@ composer install
 ```shell
 php artisan migrate
 php artisan db:seed
+php artisan key:generate
 php artisan config:cache
 php artisan route:cache
 ```
