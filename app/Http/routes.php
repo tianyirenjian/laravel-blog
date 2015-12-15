@@ -21,6 +21,7 @@ Route::get('/search','IndexController@search');
 
 Route::get('auth/login','Auth\AuthController@getLogin');
 Route::post('auth/login','Auth\AuthController@postLogin');
+Route::get('auth/logout','Auth\AuthController@getLogout');
 
 Route::group(['middleware'=>'auth','prefix'=>'goenitz','namespace'=>'Goenitz'],function(){
     Route::get('/','DashboardController@index');
@@ -36,4 +37,8 @@ Route::group(['middleware'=>'auth','prefix'=>'goenitz','namespace'=>'Goenitz'],f
         'except'=>['destroy','show']
     ]);
     Route::get('tags/{id}/destroy','TagController@destroy');
+    
+    //user set
+    Route::get('user','UserController@index');
+    Route::put('user/{user}','UserController@update');
 });
