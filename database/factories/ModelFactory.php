@@ -26,13 +26,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Setting::class,function(Faker\Generator $faker){
-    return [
-        'webname'=>'Goenitz',
-        'keywords'=>'Goenitz,Php,laravel',
-        'description'=>'Goenitz 个人空间'
-    ];
-});
 
 $factory->define(App\Profile::class,function(Faker\Generator $faker){
     return [

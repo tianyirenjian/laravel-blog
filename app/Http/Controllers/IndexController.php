@@ -20,7 +20,8 @@ class IndexController extends Controller
         $this->tags=Tag::with(['articles'=>function($query){
             $query->select('id');
         }])->get();
-        $this->setting=Setting::first();
+        $settings=Setting::lists('value','name')->toArray();
+        $this->setting=(object)$settings;
 
         /*$this->tags=Tag::select([
             'tags.*',
