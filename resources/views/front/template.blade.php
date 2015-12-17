@@ -13,7 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 @yield('title')
-<link rel="stylesheet" type="text/css" href="{{ elixir('css/app.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ elixir('css/front.css') }}">
 @yield('style')
 </head>
 <body class="front">
@@ -29,10 +29,10 @@
 <footer>
     <p class="container">©2015 Powered by Goenitz.</p>
 </footer>
-<div class="progress xxs" id="topProgress">
+<div class="progress" style="height:3px;" id="topProgress">
     <div class="progress-bar" style="width: 0%"></div>
 </div>
-<script src="{{ elixir('js/app.js') }}"></script>
+<script src="{{ elixir('js/front.js') }}"></script>
 <script type="text/javascript">
 hljs.initHighlightingOnLoad();
 </script>
