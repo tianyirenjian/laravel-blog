@@ -24,7 +24,7 @@ Route::post('auth/login','Auth\AuthController@postLogin');
 Route::get('auth/logout','Auth\AuthController@getLogout');
 
 Route::group(['middleware'=>'auth','prefix'=>'goenitz','namespace'=>'Goenitz'],function(){
-    Route::get('/','DashboardController@index');
+    Route::get('/','ArticleController@index');
 
     //articles
     Route::resource('articles','ArticleController',[

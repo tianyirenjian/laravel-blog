@@ -30,7 +30,9 @@
                         @foreach($articles as $article)
                         <tr>
                             <td>{{ $article->id }}</td>
-                            <td>{{ $article->title }}</td>
+                            <td>
+                                <a href="/post/{{ $article->slug }}" target="_blank">{{ $article->title }}</a>
+                            </td>
                             <td>
                                 @foreach($article->tags as $tag)
                                 <span class="label label-default">{{ $tag->name }}</span>

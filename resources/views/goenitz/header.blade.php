@@ -2,7 +2,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{ action('Goenitz\DashboardController@index') }}" class="logo">
+        <a href="{{ action('Goenitz\ArticleController@index') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini" title="Goenitz">G</span>
             <!-- logo for regular state and mobile devices -->
