@@ -1,13 +1,15 @@
 @extends('front.template')
 @section('title')
 @if(isset($tag))
-<title>标签:{{ $tag->name }} - {{ $setting->webname }}</title>
+<title>标签:{{ $tag->name }} - {{ $setting->webname or '' }}</title>
 @elseif(isset($query))
-<title>搜索:{{ $query }} - {{ $setting->webname }}</title>
+<title>搜索:{{ $query }} - {{ $setting->webname or '' }}</title>
+@elseif(isset($page_tag))
+<title>标签:{{ $page_tag }} - {{ $setting->webname or '' }}</title>
 @else
 <title>{{ $setting->webname }}</title>
-<meta name="keywords" content="{{ $setting->keywords }}">
-<meta name="description" content="{{ $setting->description }}">
+<meta name="keywords" content="{{ $setting->keywords or '' }}">
+<meta name="description" content="{{ $setting->description or '' }}">
 @endif
 @stop
 @section('content')
@@ -29,7 +31,7 @@
                             ?></li>
                             @foreach($article->tags as $tag)
                             <li>
-                                <a href="{{ action('IndexController@showTag',$tag->name) }}"><span class="label label-default"><i class="fa fa-tag"> </i> {{ $tag->name }}</span></a>
+                                <a href="{{ action('IndexController@showTag',$tag->name) }}"><span class="label label-primary"><i class="fa fa-tag"> </i> {{ $tag->name }}</span></a>
                             </li>
                             @endforeach
                         </ul>
@@ -42,7 +44,7 @@
                                     {!! Form::open(['url'=>action('IndexController@show',$article->slug),'class'=>'form-inline']) !!}
                                     <div class="form-group<?php if($errors->has('password')&&$errors->first('id')==$article->id){ echo ' has-error';}?>">
                                         {!! Form::label('password','密码：') !!}
-                                        {!! Form::text('password',null,['class'=>'form-control input-sm']) !!}
+                                        {!! Form::text('password',null,['class'=>'form-control input-sm','autocomplete'=>'off']) !!}
                                         {!! Form::submit('查看',['class'=>'btn btn-primary btn-sm']) !!}
                                         @if($errors->has('password')&&$errors->first('id')==$article->id)
                                         <p class="help-block">{{ $errors->first('password') }}</p>
@@ -65,31 +67,7 @@
             {!! $articles->render() !!}
         </div>
         <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <form action="/search">
-                        <div class="input-group">
-                            <input type="text" name="query" class="form-control input-sm" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-sm" type="submit">搜索</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="tags panel panel-default">
-                <div class="panel-body">
-                    <nav>
-                        <ul class="nav">
-                            @foreach($tags as $tag)
-                            <li>
-                                <a href="{{ action('IndexController@showTag',$tag->name) }}">{{ $tag->name }} ({{ $tag->articles->count() }})</a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+            @include('front.sidebar')
         </div>
     </div>
 </div>

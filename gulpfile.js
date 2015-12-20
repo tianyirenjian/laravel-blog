@@ -19,6 +19,8 @@ npm install admin-lte
 npm install font-awesome
 npm install toastr
 bower install select2-bootstrap-css
+bower install highlightjs
+npm install vue
 */
 
 
@@ -29,7 +31,8 @@ var paths={
     adminlte:'./node_modules/admin-lte/',
     toastr:'./node_modules/toastr/',
     select2:'./vendor/bower_components/select2/',
-    highlightjs:'./public/highlight/'
+    highlightjs:'./vendor/bower_components/highlightjs/',
+    vue:'./node_modules/vue/'
 };
 
 elixir(function(mix) {
@@ -38,7 +41,6 @@ elixir(function(mix) {
         paths.fontawesome+'scss/'
     ]})
     .less('app.less','public/css/app-less.css',{paths:[paths.adminlte+'build/less/']})
-    .less('front.less','public/css/front-only.css')
     .copy(paths.bootstrap+'fonts/bootstrap/**','public/fonts/bootstrap')
     .copy(paths.fontawesome+'fonts/**','public/fonts/fontawesome')
     .coffee('progress.coffee','public/js/progress.js')
@@ -47,21 +49,24 @@ elixir(function(mix) {
         paths.bootstrap+'javascripts/bootstrap.js',
         paths.adminlte+'dist/js/app.js',
         paths.select2+'select2.min.js',
+        paths.toastr+'build/toastr.min.js',
         './public/js/progress.js'
     ],'public/js/app.js','./')
     .copy(paths.adminlte+'dist/img/**','public/images/adminlte')
     .copy(paths.adminlte+'dist/img/credit/**','public/images/adminlte/credit')
+    .copy(paths.vue+'dist/vue.min.js','public/js/vue.min.js')
     .styles([
         './public/css/app-scss.css',
         './public/css/app-less.css',
         paths.select2+'select2.css',
-        paths.select2+'select2-bootstrap.css'
+        paths.select2+'select2-bootstrap.css',
+        paths.toastr+'build/toastr.min.css'
     ],'public/css/app.css')
     .copy(paths.select2+'*.png','public/build/css/')
     .copy(paths.select2+'*.gif','public/build/css/')
     .styles([
         './public/css/app-scss.css',
-        './public/css/front-only.css',
+        './public/css/app-less.css',
         paths.highlightjs+'styles/github.css'
     ],'public/css/front.css')
     .scripts([
@@ -74,6 +79,7 @@ elixir(function(mix) {
         'css/app.css',
         'js/app.js',
         'css/front.css',
-        'js/front.js'
+        'js/front.js',
+        'js/vue.min.js'
     ]);
 });

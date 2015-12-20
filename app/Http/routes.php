@@ -41,4 +41,10 @@ Route::group(['middleware'=>'auth','prefix'=>'goenitz','namespace'=>'Goenitz'],f
     //user set
     Route::get('user','UserController@index');
     Route::put('user/{user}','UserController@update');
+    
+    //settings
+    Route::resource('settings','SettingController',[
+        'except'=>['show']
+    ]);
+    Route::get('settings/getdata','SettingController@getData');
 });

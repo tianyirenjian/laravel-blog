@@ -1,6 +1,6 @@
 @extends('front.template')
 @section('title')
-<title>{{ $article->title }} - {{ $setting->webname }}</title>
+<title>{{ $article->title }} - {{ $setting->webname or '' }}</title>
 @stop
 @section('content')
 <div class="container">
@@ -20,7 +20,7 @@
                                 ?></li>
                             @foreach($article->tags as $tag)
                                 <li>
-                                    <a href="{{ action('IndexController@showTag',$tag->name) }}"><span class="label label-default"><i class="fa fa-tag"> </i> {{ $tag->name }}</span></a>
+                                    <a href="{{ action('IndexController@showTag',$tag->name) }}"><span class="label label-primary"><i class="fa fa-tag"> </i> {{ $tag->name }}</span></a>
                                 </li>
                             @endforeach
                         </ul>
@@ -33,7 +33,7 @@
                             <!-- 多说评论框 end -->
                             <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
                             <script type="text/javascript">
-                            var duoshuoQuery = {short_name:"goenitzxyz"};
+                            var duoshuoQuery = {short_name:"{{ $setting->duoshuo_key or '' }}"};
                                 (function() {
                                     var ds = document.createElement('script');
                                     ds.type = 'text/javascript';ds.async = true;
@@ -67,31 +67,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <form action="/search">
-                        <div class="input-group">
-                            <input type="text" name="query" class="form-control input-sm" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default btn-sm" type="submit">搜索</button>
-                        </span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="tags panel panel-default">
-                <div class="panel-body">
-                    <nav>
-                        <ul class="nav">
-                            @foreach($tags as $tag)
-                                <li>
-                                    <a href="{{ action('IndexController@showTag',$tag->name) }}">{{ $tag->name }} ({{ $tag->articles->count() }})</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+            @include('front.sidebar')
         </div>
     </div>
 </div>

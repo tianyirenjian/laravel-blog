@@ -92,7 +92,7 @@ class IndexController extends Controller
         }else{
             $articles=$tag->articles()->latest()->paginate(5);
             return view('front.index',[
-                'tag'=>$tag,
+                'page_tag'=>$tag->name,
                 'articles'=>$articles,
                 'tags'=>$this->tags,
                 'setting'=>$this->setting
