@@ -23,6 +23,10 @@ class SettingTableSeeder extends Seeder
             [
                 'name'=>'description',
                 'value'=>'Goenitz 个人空间'
+            ],
+            [
+                'name'=>'duoshuo_key',
+                'value'=>'test'
             ]
         ]);
     }
