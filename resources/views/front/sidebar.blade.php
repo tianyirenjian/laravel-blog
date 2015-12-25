@@ -3,9 +3,9 @@
         <form action="/search">
             <div class="input-group">
                 <input type="text" name="query" class="form-control input-sm" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-sm" type="submit">搜索</button>
-                            </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-sm" type="submit">搜索</button>
+                </span>
             </div>
         </form>
     </div>
