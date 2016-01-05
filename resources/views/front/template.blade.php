@@ -30,10 +30,12 @@
                 Goenitz
             </a>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/">首页</a></li>
-            <li><a href="/post/hello-world">关于</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/">首页</a></li>
+                <li><a href="/post/hello-world">关于</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 @yield('content')
