@@ -52,6 +52,7 @@
                         @endforeach
                     </tbody>
                 </table>
+		{!! $articles->render() !!}
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles=Article::with('tags')->get();
+        $articles=Article::with('tags')->latest()->paginate(10);
         return view('goenitz.article.index',[
             'articles'=>$articles
         ]);
