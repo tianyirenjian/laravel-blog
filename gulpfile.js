@@ -65,7 +65,7 @@ elixir(function(mix) {
     .styles([
         './public/css/app-scss.css',
         './public/css/app-less.css',
-        paths.highlightjs+'styles/github.css'
+        paths.highlightjs+'styles/docco.css'
     ],'public/css/front.css')
     .scripts([
         paths.jquery+'dist/jquery.js',
