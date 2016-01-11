@@ -1,4 +1,4 @@
-
+@maincolor:#03A9F4;
 body.front{
     background-color: #F9F9F9;
     padding-top:70px;
@@ -6,6 +6,19 @@ body.front{
 header.front{
     margin-top:10px;
     margin-bottom: 20px;
+}
+.front nav.navbar{
+    background-color:@maincolor;
+    box-shadow: 0 2px 6px rgba(3,169,244,0.2);
+}
+.front .navbar .navbar-brand{
+    color:#ffffff;
+}
+.front .navbar-nav li a{
+    color:#ffffff;
+}
+.front .navbar-nav li a:hover{
+    color:#dddddd;
 }
 #webname{
     color:#777;
@@ -44,7 +57,7 @@ header.front{
         font-size: 14px;
         color:#999;
         padding:6px 1px 10px 0;
-        border-bottom:4px solid #337ab7;
+        border-bottom:4px solid @maincolor;
         margin-bottom: 10px;
         li{
             float:left;
@@ -63,9 +76,6 @@ header.front{
         margin-bottom: 0px;
     }
 }
-#topProgress{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:1219;
+.pagination .active span{
+    background-color:@maincolor;
 }

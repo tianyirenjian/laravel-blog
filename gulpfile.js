@@ -43,14 +43,12 @@ elixir(function(mix) {
     .less('app.less','public/css/app-less.css',{paths:[paths.adminlte+'build/less/']})
     .copy(paths.bootstrap+'fonts/bootstrap/**','public/fonts/bootstrap')
     .copy(paths.fontawesome+'fonts/**','public/fonts/fontawesome')
-    .coffee('progress.coffee','public/js/progress.js')
     .scripts([
         paths.jquery+'dist/jquery.js',
         paths.bootstrap+'javascripts/bootstrap.js',
         paths.adminlte+'dist/js/app.js',
         paths.select2+'select2.min.js',
-        paths.toastr+'build/toastr.min.js',
-        './public/js/progress.js'
+        paths.toastr+'build/toastr.min.js'
     ],'public/js/app.js','./')
     .copy(paths.adminlte+'dist/img/**','public/images/adminlte')
     .copy(paths.adminlte+'dist/img/credit/**','public/images/adminlte/credit')
@@ -72,8 +70,7 @@ elixir(function(mix) {
     .scripts([
         paths.jquery+'dist/jquery.js',
         paths.bootstrap+'javascripts/bootstrap.js',
-        paths.highlightjs+'highlight.pack.js',
-        './public/js/progress.js'
+        paths.highlightjs+'highlight.pack.js'
     ],'public/js/front.js','./')
     .version([
         'css/app.css',
