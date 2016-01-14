@@ -76,6 +76,14 @@ header.front{
             margin-right:-15px;
             border:none;
             border-radius:0;
+            word-break:normal;
+            word-wrap:normal;
+            white-space: pre;
+            code{
+                white-space: pre;
+                word-spacing: normal;
+                word-break: normal;
+            }
         }
     }
 }
@@ -89,4 +97,25 @@ header.front{
 }
 .pagination .active span{
     background-color:@maincolor;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height:10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(3,169,188,0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(3,169,188,0.4);
 }
