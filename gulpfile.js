@@ -53,6 +53,7 @@ elixir(function(mix) {
     .copy(paths.adminlte+'dist/img/**','public/images/adminlte')
     .copy(paths.adminlte+'dist/img/credit/**','public/images/adminlte/credit')
     .copy(paths.vue+'dist/vue.min.js','public/js/vue.min.js')
+    .coffee('scroll_to_top.coffee','public/js/scroll_to_top.js')
     .styles([
         './public/css/app-scss.css',
         './public/css/app-less.css',
@@ -70,7 +71,8 @@ elixir(function(mix) {
     .scripts([
         paths.jquery+'dist/jquery.js',
         paths.bootstrap+'javascripts/bootstrap.js',
-        paths.highlightjs+'highlight.pack.js'
+        paths.highlightjs+'highlight.pack.js',
+        './public/js/scroll_to_top.js'
     ],'public/js/front.js','./')
     .version([
         'css/app.css',

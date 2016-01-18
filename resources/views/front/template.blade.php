@@ -39,6 +39,9 @@
     </div>
 </nav>
 @yield('content')
+<a href="#top" id="scrollToTop">
+    <i class="fa fa-arrow-up"> </i>
+</a>
 <footer>
     <p class="container">©2015 Powered by Goenitz.</p>
 </footer>
