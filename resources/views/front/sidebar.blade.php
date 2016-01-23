@@ -26,3 +26,20 @@
     </div>
     <!-- /.box-body -->
 </div>
+<div class="box box-solid">
+    <div class="box-header with-border">
+        <div class="box-title">友情链接</div>
+    </div>
+    <div class="box-body no-padding">
+        <ul class="nav nav-pills nav-stacked">
+            @foreach($links as $link)
+            <li>
+                <a href="{{ $link->url }}" target="_blank">
+                    <i class="fa fa-link"></i>
+                    {{ $link->name }}
+                </a>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+</div>

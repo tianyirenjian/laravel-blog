@@ -35,7 +35,7 @@
                     <li><a href="{{ action('Goenitz\TagController@index') }}"><i class="fa fa-circle-o"></i> 文章标签</a></li>
                 </ul>
             </li>
-            <!--<li><a href="#"><i class="fa fa-folder"></i> <span>文件管理</span></a></li>-->
+            <li><a href="{{ action('Goenitz\LinkController@index') }}"><i class="fa fa-link"></i> <span>友情链接</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

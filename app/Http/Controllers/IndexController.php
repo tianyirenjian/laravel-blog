@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Link;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,6 +15,7 @@ class IndexController extends Controller
 {
     private $tags;
     private $setting;
+    private $links;
 
     public function __construct()
     {
@@ -22,6 +24,7 @@ class IndexController extends Controller
         }])->get();
         $settings=Setting::lists('value','name')->toArray();
         $this->setting=(object)$settings;
+        $this->links = Link::all()->sortBy('sort');
 
         /*$this->tags=Tag::select([
             'tags.*',
@@ -39,7 +42,8 @@ class IndexController extends Controller
         return view('front.index',[
             'articles'=>$articles,
             'tags'=>$this->tags,
-            'setting'=>$this->setting
+            'setting'=>$this->setting,
+            'links' => $this->links
         ]);
     }
 
@@ -53,7 +57,8 @@ class IndexController extends Controller
                 return view('front.post',[
                     'article'=>$article,
                     'tags'=>$this->tags,
-                    'setting'=>$this->setting
+                    'setting'=>$this->setting,
+                    'links' => $this->links
                 ]);
             }else{
                 //判断密码
@@ -95,7 +100,8 @@ class IndexController extends Controller
                 'page_tag'=>$tag->name,
                 'articles'=>$articles,
                 'tags'=>$this->tags,
-                'setting'=>$this->setting
+                'setting'=>$this->setting,
+                'links' => $this->links
             ]);
         }
     }
@@ -107,7 +113,8 @@ class IndexController extends Controller
             'query'=>$query,
             'articles'=>$articles,
             'tags'=>$this->tags,
-            'setting'=>$this->setting
+            'setting'=>$this->setting,
+            'links' => $this->links
         ]);
     }
 }

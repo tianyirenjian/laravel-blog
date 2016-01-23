@@ -47,4 +47,10 @@ Route::group(['middleware'=>'auth','prefix'=>'goenitz','namespace'=>'Goenitz'],f
         'except'=>['show']
     ]);
     Route::get('settings/getdata','SettingController@getData');
+
+    //links
+    Route::resource('links','LinkController',[
+        'except'=>['show']
+    ]);
+    Route::get('links/{links}/destroy','LinkController@destroy');
 });
