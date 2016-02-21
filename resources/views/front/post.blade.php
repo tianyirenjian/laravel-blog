@@ -26,7 +26,7 @@
                         </ul>
                         <div class="post-content">
                             @if(!$article->password || (\Session::get('passed_'.$article->id)))
-                            {!! Markdown::convertToHtml($article->content) !!}
+                                {!! (new Parsedown())->text($article->content) !!}
                             <div style="margin-bottom: 10px;padding-bottom: 15px;"></div>
                             <!-- 多说评论框 start -->
                                 <div class="ds-thread" data-thread-key="{{ $article->id }}" data-title="{{ $article->title }}" data-url="http://www.goenitz.xyz/post/{{ $article->slug }}"></div>

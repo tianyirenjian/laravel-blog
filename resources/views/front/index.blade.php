@@ -37,7 +37,7 @@
                         </ul>
                         <div class="post-content">
                             @if(!$article->password || (\Session::get('passed_'.$article->id)))
-                            {!! Markdown::convertToHtml($article->content) !!}
+                                {!! (new Parsedown())->text($article->content) !!}
                             @else
                             <div class="row">
                                 <div class="col-md-6">

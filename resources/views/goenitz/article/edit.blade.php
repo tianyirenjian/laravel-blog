@@ -1,16 +1,7 @@
 @extends('goenitz.goenitz')
 @section('title')
     <title>更新文章</title>
-    <link rel="stylesheet" type="text/css" href="/markdown/editor.css">
-    <style type="text/css">
-    .CodeMirror{
-        height:250px;
-    }
-    .editor-preview img{
-        max-width: 100%;
-        height: auto!important;
-    }
-    </style>
+    <link rel="stylesheet" href="/bootstrap-markdown/css/bootstrap-markdown.min.css">
 @stop
 @section('content')
     <div class="content-header">
@@ -41,7 +32,7 @@
                         </div>
                         <div class="form-group<?php if($errors->has('content')){ echo " has-error"; }?>">
                             {!! Form::label('content','内容:') !!}
-                            {!! Form::textarea('content',null,['class'=>'form-control input-sm','rows'=>5]) !!}
+                            {!! Form::textarea('content',null,['class'=>'form-control input-sm','rows'=>10]) !!}
                             <p class="help-block">{{ $errors->first('content') }}</p>
                         </div>
                         <div class="form-group">
@@ -71,13 +62,12 @@
     </div>
 @stop
 @section('script')
-<script src="/markdown/editor.js"></script>
-<script src="/markdown/marked.js"></script>
+<script src="/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+<script src="/bootstrap-markdown/js/marked.js"></script>
 <script>
 $(function(){
     $(".tag_list").select2();
-    var editor=new Editor();
-    editor.render();
+    $("#content").markdown({autofocus:false,savable:false,language:'zh'});
 });
 </script>
 @stop

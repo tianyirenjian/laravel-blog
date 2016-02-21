@@ -1,16 +1,7 @@
 @extends('goenitz.goenitz')
 @section('title')
     <title>添加文章</title>
-    <link rel="stylesheet" type="text/css" href="/markdown/editor.css">
-    <style type="text/css">
-    .CodeMirror{
-        height:250px;
-    }
-    .editor-preview img{
-        max-width: 100%;
-        height: auto!important;
-    }
-    </style>
+    <link rel="stylesheet" href="/bootstrap-markdown/css/bootstrap-markdown.min.css">
 @stop
 @section('content')
     <div class="content-header">
@@ -69,13 +60,12 @@
     </div>
 @stop
 @section('script')
-<script src="/markdown/editor.js"></script>
-<script src="/markdown/marked.js"></script>
+<script src="/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+<script src="/bootstrap-markdown/js/marked.js"></script>
 <script>
 $(function(){
     $(".tag_list").select2();
-    var editor=new Editor();
-    editor.render();
+    $("#content").markdown({autofocus:false,savable:false,language:'zh'});
 });
 </script>
 @stop
