@@ -63,6 +63,7 @@
 @stop
 @section('script')
 <script src="/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+<script src="/bootstrap-markdown/locale/bootstrap-markdown.zh.js"></script>
 <script src="/bootstrap-markdown/js/marked.js"></script>
 <script>
 $(function(){
