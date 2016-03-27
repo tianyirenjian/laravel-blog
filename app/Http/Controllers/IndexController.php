@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Link;
+use App\Passed;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -78,6 +79,10 @@ class IndexController extends Controller
                 }
                 $password=\Request::get('password');
                 if(strstr($article->password,','.$password.',')>-1){
+                    $ip = \Request::getClientIp();
+                    $passed = new Passed();
+                    $passed->ip = $ip;
+                    $passed->save();
                     \Session::set('passed_'.$article->id,true);
                     return redirect()->action('IndexController@show',$article->slug);
                 }else{
