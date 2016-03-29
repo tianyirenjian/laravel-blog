@@ -82,6 +82,7 @@ class IndexController extends Controller
                     $ip = \Request::getClientIp();
                     $passed = new Passed();
                     $passed->ip = $ip;
+                    $passed->article_id = $article->id;
                     $passed->save();
                     \Session::set('passed_'.$article->id,true);
                     return redirect()->action('IndexController@show',$article->slug);
