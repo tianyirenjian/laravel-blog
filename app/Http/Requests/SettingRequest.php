@@ -25,7 +25,7 @@ class SettingRequest extends Request
     {
         return [
             'name'=>'required|max:255',
-            'value'=>'max:255'
+            'value'=>'max:1000'
         ];
     }
 

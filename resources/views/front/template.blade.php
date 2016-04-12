@@ -44,6 +44,7 @@
 </a>
 <footer>
     <p class="container">©2015 Powered by Goenitz.</p>
+    <div class="hide">{!! $setting->cnzz or '' !!}</div>
 </footer>
 <script src="{{ elixir('js/front.js') }}"></script>
 <script type="text/javascript">
